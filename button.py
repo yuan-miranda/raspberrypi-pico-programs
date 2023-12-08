@@ -1,14 +1,12 @@
-# Simple button interface using Raspberry Pi Pico W Microcontroller
-# Github: yuan-miranda
+# simple button interface for raspberry pi pico w.
 
-import machine # From MicroPython library
-import time
+import machine
 
-#   GP2---[ button ]---3v3
-# Note: 3v3 is used instead of GND so no external resistor is needed
+# connect the button legs to GP2 and the other one to 3v3.
 button = machine.Pin(2, machine.Pin.IN, machine.Pin.PULL_DOWN)
 
 while True:
-    if button.value(): # returns 1(ON) when clicked
+    # this will continuously print the output, use the debounced_button.py instead
+    # to prevent the bouncing effect.
+    if button.value():
         print("Button pressed")
-        time.sleep(1)  # 1 second click debounce
